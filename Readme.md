@@ -87,6 +87,8 @@ cd git-clone; git clone https://github.com/vortexau/dnsvalidator; cd dnsvalidato
 go install github.com/ferreiraklet/airixss@latest
 #Dirsearch
 pip3 install dirsearch
+#Naabu
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 ```
 ### BBRF server
 ```
