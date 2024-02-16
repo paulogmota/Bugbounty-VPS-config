@@ -1,5 +1,6 @@
 # My bug bounty automation VPS setup
-I'm sharing here all the tools and configs I generally use in my VPS for bug bounty and general security testing. This repo was initially private so I could use if I had any trouble with my OS, but I decided to publish it. Feel free to contribute
+I'm sharing here all the tools and configurations I generally use on my VPS for bug bounty and general security testing. This repository was initially private so I could use it if I had any trouble with my OS, but I decided to publish it. Feel free to contribute. 
+
 I always use Ubuntu 22.04 for my private servers.
 ## Pre requisites
 - Create a folder called `environment` to put all the installation files inside
