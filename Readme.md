@@ -1,4 +1,4 @@
-# My bug bounty automation environment setup
+# My bug bounty automation VPS setup
 I'm sharing here all the tools and configs I generally use in my VPS for bug bounty and general security testing. This repo was initially private so I could use if I had any trouble with my OS, but I decided to publish it. Feel free to contribute
 I always use Ubuntu 22.04 for my private servers.
 ## Pre requisites
@@ -35,7 +35,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
-
 ### Pip3
 ```
 apt install python3-pip
@@ -86,6 +85,8 @@ go install github.com/tomnomnom/qsreplace@latest
 cd git-clone; git clone https://github.com/vortexau/dnsvalidator; cd dnsvalidator; python3 setup.py install; cd ..
 #Airixss
 go install github.com/ferreiraklet/airixss@latest
+#Dirsearch
+pip3 install dirsearch
 ```
 ### BBRF server
 ```
@@ -117,6 +118,9 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 ```
 ## Wordlists
 ```
-Seclists
-leaky paths
+cd git-clone
+#Seclists
+git clone --depth 1 \ https://github.com/danielmiessler/SecLists.git
+#Leaky paths
+wget https://raw.githubusercontent.com/ayoubfathi/leaky-paths/main/leaky-paths.txt
 ```
