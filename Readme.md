@@ -91,13 +91,15 @@ pip3 install dirsearch
 #Naabu
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 ```
-### BBRF server
+### BBRF server (database for bug bounty)
+https://github.com/honoki/bbrf-server
 ```
 git clone https://github.com/honoki/bbrf-server/
 cd bbrf-server
 sudo docker-compose up -d
 ```
-### BBRF client
+### BBRF client (database client for bug bounty)
+https://github.com/honoki/bbrf-client
 ```
 pip install bbrf
 mkdir -p ~/.bbrf
