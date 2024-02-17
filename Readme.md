@@ -40,6 +40,11 @@ docker-compose --version
 ```
 apt install python3-pip
 ```
+
+### Libpcap
+```
+sudo apt install -y libpcap-dev
+```
 ## Tools
 ### Git clone
 ```
