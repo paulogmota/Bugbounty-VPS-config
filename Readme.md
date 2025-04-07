@@ -2,16 +2,24 @@
 I'm sharing here all the tools and configurations I generally use on my VPS for bug bounty and general security testing. This repository was initially private so I could use it if I had any trouble with my OS, but I decided to publish it. Feel free to contribute. 
 
 I always use Ubuntu 22.04 for my private servers.
+
+EDIT (2025-04-03) - I'm now using Arch (btw). I'm going to add some commands to install stuff in Arch as well.
 ## Pre requisites
 - Create a folder called `environment` to put all the installation files inside
 - I like to create a /root/git-clone folder to organize all the repos I clone
 ### Git, make, gcc
 ```
 apt-get --assume-yes install git make gcc
+
+# Arch Linux
+sudo pacman -S git make gcc
 ```
 ### Net Tools
 ```
 apt install net-tools
+
+# Arch Linux
+sudo pacman -S net-tools
 ```
 ### Golang
 ```
@@ -19,6 +27,9 @@ apt install net-tools
 rm -rf /usr/local/go && tar -C /root -xzf go1.22.0.linux-amd64.tar.gz
 export PATH=$PATH:/root/go/bin
 echo "PATH=\$PATH:/root/go/bin" >> /root/.bashrc
+
+# Arch Linux
+sudo pacman -S go
 ```
 ### Docker
 ```
@@ -39,11 +50,17 @@ docker-compose --version
 ### Pip3
 ```
 apt install python3-pip
+
+# Arch Linux
+sudo pacman -S python-pip
 ```
 
 ### Libpcap
 ```
 sudo apt install -y libpcap-dev
+
+# Arch Linux
+sudo pacman -S libpcap
 ```
 ## Tools
 ### Git clone
@@ -96,6 +113,23 @@ pip3 install dirsearch
 #Naabu
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 ```
+### Metasploit
+```
+cd environment/
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \ chmod 755 msfinstall && \ ./msfinstall
+```
+## Wordlists
+```
+cd git-clone
+#Seclists
+git clone --depth 1 https://github.com/danielmiessler/SecLists.git
+#Leaky paths
+wget https://raw.githubusercontent.com/ayoubfathi/leaky-paths/main/leaky-paths.txt
+```
+
+## OPTIONAL: BBRF - Database for bug bounty
+DO NOT INSTALL BEFORE KNOWING WHAT YOUR DOING. For everything, in this document, but specially this one. It's a great tool, but takes time to configure and customize it your own way.
+
 ### BBRF server (database for bug bounty)
 https://github.com/honoki/bbrf-server
 ```
@@ -120,17 +154,4 @@ cat > ~/.bbrf/config.json << EOF
     "ignore_ssl_errors": false
 }
 EOF
-```
-### Metasploit
-```
-cd environment/
-curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \ chmod 755 msfinstall && \ ./msfinstall
-```
-## Wordlists
-```
-cd git-clone
-#Seclists
-git clone --depth 1 \ https://github.com/danielmiessler/SecLists.git
-#Leaky paths
-wget https://raw.githubusercontent.com/ayoubfathi/leaky-paths/main/leaky-paths.txt
 ```
